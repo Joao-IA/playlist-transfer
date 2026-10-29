@@ -1,0 +1,2 @@
+ytmusicapi>=1.12
+rapidfuzz>=3.14
