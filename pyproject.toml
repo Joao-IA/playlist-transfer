@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "music-transfer"
+version = "0.2.0"
+description = "Move playlists between Spotify, YouTube Music, Deezer, Apple Music and SoundCloud."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Joao-IA" }]
+requires-python = ">=3.10"
+keywords = ["playlist", "spotify", "youtube-music", "deezer", "apple-music", "soundcloud", "cli"]
+classifiers = [
+    "Environment :: Console",
+    "Programming Language :: Python :: 3",
+    "Topic :: Multimedia :: Sound/Audio",
+]
+dependencies = [
+    "ytmusicapi>=1.12",
+    "rapidfuzz>=3.14",
+    "requests>=2.32",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.14"]
+
+[project.scripts]
+music-transfer = "music_transfer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
